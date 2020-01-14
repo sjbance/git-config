@@ -1,0 +1,20 @@
+[user]
+	email =
+	name =
+[core]
+	editor = vim
+[alias]
+	s = status
+	cb = checkout -b
+	cf = checkout -f
+	c = checkout
+	cp = cherry-pick
+	l = log --oneline
+	cm = !git stash && git checkout master && git pull
+	unstage = reset HEAD --
+	caa = commit -a --amend -C HEAD
+	bclean = "!f() { git branch --merged ${1-master} | grep -v " ${1-master}$" | xargs -r git branch -d; }; f"
+	new = !sh -c 'git log $1@{1}..$1@{0} "$@"'
+	un = reset --hard HEAD
+	pof = !git push origin -f $(git branch | grep \\* | cut -d ' ' -f2)
+	po = !git push origin $(git branch | grep \\* | cut -d ' ' -f2)
